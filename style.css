@@ -7,7 +7,7 @@ body {
 #container {
     background-color: rgb(207, 185, 158);
     border: 5px solid #fff;
-    height: 120vh;
+    height: 200vh;
     width: 80vw;
     margin: auto;
     text-align:center;
@@ -42,5 +42,10 @@ body {
 #btn {
     height: 30px;
     width: 80px;
-    
+}
+
+#outputText {
+    column-count: 3;
+    height: 100vh;
+    break-inside: avoid;
 }

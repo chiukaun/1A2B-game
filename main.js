@@ -1,5 +1,4 @@
 // trigger enter key
-
 let userInput = document.getElementById('userInput');
 userInput.addEventListener("keypress", function(event){
     if (event.key == "Enter"){
@@ -10,19 +9,19 @@ userInput.addEventListener("keypress", function(event){
 })
 
 // set up variables
-let btn = document.getElementById("btn");
-let output = document.getElementById('outputText');
-let startBtn = document.getElementById('startBtn');
-let startGame = document.getElementById('startGame');
-let gameSection = document.getElementById('gameSection');
-container.removeChild(gameSection);
+  let btn = document.getElementById("btn");
+  let output = document.getElementById('outputText');
+  let startBtn = document.getElementById('startBtn');
+  let startGame = document.getElementById('startGame');
+  let gameSection = document.getElementById('gameSection');
+  let explainSection = document.getElementById('explain');
+  let i = 0; // timer counter
+  container.removeChild(gameSection);
 
 // define numComp no matter game starts or not.
-//let numComp = Math.floor(Math.random() * 9000)+1000;
-
+// let numComp = Math.floor(Math.random() * 9000)+1000; <-- gives repititive digits
 let numComp = "0123456789".split('').map(Number)
 .sort(()=> Math.random() - 0.5).slice(0, 4).join('');
-
 console.log('Game is on, computer goes with: ' + numComp);
 
 
@@ -52,14 +51,28 @@ startBtn.addEventListener('click', function() {
 
         // generate computer 4-digits and show dialogue   
         let compAns = document.createElement('p');
+        compAns.id = 'compAns'
         compAns.innerHTML = 'OK I have it now! Go ahead'
         container.appendChild(compAns);
 
+       
+
         // show game section: gameSection, userInput, btn
         container.appendChild(gameSection);
+
+        
     }, 2000);
 
-
+    // generate timer section
+    setTimeout(() => {
+      let timer = document.createElement('p')
+      timer.id = 'timer';
+      container.insertBefore(timer, container.children[4]);
+      const timerCounts = setInterval(() => {
+        i++
+        timer.innerHTML = 'Timer: ' + i + ' secnods';
+      }, 1000);
+    }, 2000);
 })
 
 // game function
@@ -92,15 +105,19 @@ btn.addEventListener('click', function(){
       }
       // return result
       if (testA.length === 4) {
-        let success = document.createElement('li');
-        success.innerHTML = '4A0B, YOU WIN!';
-
-        output.appendChild(success);
+        let success = document.createElement('p');
+        let times = output.childNodes.length;
+        let compAns = document.getElementById('compAns');
+        container.removeChild(timer);
+        success.innerHTML = `4A0B, YOU WIN! You've tried ${times+1} times in ${i} seconds. `;
+        container.removeChild(gameSection);
+        container.removeChild(compAns);
+        container.appendChild(success);
 
 
       } else {
         let hint = document.createElement('li');
-        hint.innerHTML = `${testA.length}A${testB.length}B`;
+        hint.innerHTML = `${input}  is  ${testA.length}A${testB.length}B`;
         output.appendChild(hint);
       }
     }
@@ -110,4 +127,6 @@ btn.addEventListener('click', function(){
         error.innerHTML = 'Nope, wrong format';
         output.appendChild(error);
     }
+
 })
+
