@@ -36,14 +36,14 @@ ul {
 }
 
 .swiper {
-    width: 80%;
+    width: 400px;
     height: fit-content;
     
 }
 
 .swiper .swiper-button-prev, .swiper .swiper-button-next {
     color: #fff;
-    
+
 }
 
 .swiper .swiper-pagination {
