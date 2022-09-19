@@ -52,7 +52,7 @@ startBtn.addEventListener('click', function() {
         // generate computer 4-digits and show dialogue   
         let compAns = document.createElement('p');
         compAns.id = 'compAns'
-        compAns.innerHTML = 'OK I have it now! Go ahead'
+        compAns.innerHTML = 'OK go ahead!'
         container.appendChild(compAns);
 
        
@@ -109,7 +109,7 @@ btn.addEventListener('click', function(){
         let times = output.childNodes.length;
         let compAns = document.getElementById('compAns');
         container.removeChild(timer);
-        success.innerHTML = `4A0B, YOU WIN! You've tried ${times+1} times in ${i} seconds. `;
+        success.innerHTML = `4A0B, YOU WIN! </br> You've tried ${times+1} times in ${i} seconds. `;
         container.removeChild(gameSection);
         container.removeChild(compAns);
         container.appendChild(success);

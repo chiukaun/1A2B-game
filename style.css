@@ -25,6 +25,16 @@ body {
     font-weight: 500;
 }
 
+p {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
+
+ul {
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
+
 .swiper {
     width: 80%;
     height: fit-content;
@@ -41,12 +51,12 @@ body {
 }
 
 .explain {
-    text-align: left;
-    width: 200px;
+    text-align: center;
+    width: 250px;
     height: 100px;
     border: 1px solid #333;
     position: relative;
-    padding: 20px;
+    padding: auto;
     margin: 10px auto;
     background-color: #FFB562;
     box-shadow: 5px 5px 0px #333;
@@ -54,6 +64,8 @@ body {
 
 .explain p {
     font-style: italic;
+    font-size: 20px;
+
 }
 
 #startGame {
@@ -77,6 +89,10 @@ body {
 #btn {
     height: 30px;
     width: 80px;
+    background-color: #F87474;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+
 }
 
 #outputText {
