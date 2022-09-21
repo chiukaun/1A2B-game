@@ -64,8 +64,9 @@ ul {
 
 .explain p {
     font-style: italic;
-    font-size: 20px;
-
+    font-size: 18px;
+    padding: auto;
+    
 }
 
 #startGame {
